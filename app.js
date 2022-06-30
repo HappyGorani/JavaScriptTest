@@ -2,7 +2,6 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const { render } = require('ejs')
-
 const app = express()
 
 const memoFilePath = path.join(__dirname, 'data', 'memos.json')

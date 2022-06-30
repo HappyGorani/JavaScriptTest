@@ -1,3 +1,4 @@
+
 function drawerOpen() {
     menuDrawerElement.classList.toggle('open')
 }
@@ -8,11 +9,5 @@ function drawerClose() {
 
 function memoSelect(event) {
     const target = event.currentTarget.classList
-    if (target !== 'selected') {
-        target.add('selected')
-    } else if (target == 'selected') {
-        target.remove('selected')
-    }
-
-
+    target.contains('selected') ? target.remove('selected'):target.add('selected')
 }
