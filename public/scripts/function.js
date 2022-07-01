@@ -1,13 +1,14 @@
-
 function drawerOpen() {
-    menuDrawerElement.classList.toggle('open')
+  menuDrawerElement.classList.toggle("open");
 }
 
 function drawerClose() {
-    menuDrawerElement.classList.remove('open')
+  menuDrawerElement.classList.remove("open");
 }
 
 function memoSelect(event) {
-    const target = event.currentTarget.classList
-    target.contains('selected') ? target.remove('selected'):target.add('selected')
+  const target = event.currentTarget.classList;
+  target.contains("selected")
+    ? target.remove("selected")
+    : target.add("selected");
 }

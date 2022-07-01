@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('includes/head') %>
-        <title>MyTestWebPage</title>
-        <link rel="stylesheet" href="css/shared.css">
-        <link rel="stylesheet" href="css/boxList.css">
-        <script src="scripts/function.js" defer></script>
-        <script src="scripts/functionName.js" defer></script>
-</head>
+    <title>MyTestWebPage</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/boxList.css" />
+    <link rel="stylesheet" href="css/memo.css" />
+    <script src="scripts/function.js" defer></script>
+    <script src="scripts/functionName.js" defer></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <%- include('includes/header') %>
-            <main>
-                <section id="memoBody">
-                    <% for (const memo of memos){ %>
-                        <ol class="box" id="memoBoxBody">
-                            <li>
-                                <p>
-                                    <%= memo.memoInput %>
-                                </p>
-                            </li>
-                        </ol>
-                        <% } %>
-                            <p>●</p>
-                            ㅤ
-                            <p>●</p>
-                            ㅤ
-                            <p>●</p>
-                </section>
-                <section>
-                    <form action=" /memo" method="POST">
-                        <div class="box" id="userInput">
-                            <input type="text" maxlength="60" placeholder="60자 이하의 메모 작성하기" name="memoInput"
-                                id="memoInput">
-                            <button>memo</button>
-                        </div>
-                    </form>
-                </section>
-
-
-            </main>
-            <%- include('includes/footer') %>
+      <%- include('includes/header') %>
+      <main>
+        <section id="memoBody">
+          <ol id="memoBoxBodyHead">
+            <% for (const memo of memos){ %>
+            <li class="box" id="memoBoxBody">
+              <p><%= memo.memoInput %></p>
+            </li>
+            <% } %>
+          </ol>
+          <p class="displayed">●</p>
+          ㅤ
+          <p class="displayed">●</p>
+          ㅤ
+          <p class="displayed">●</p>
+        </section>
+        <section>
+          <form action=" /memo" method="POST">
+            <div class="box" id="userInput">
+              <input
+                type="text"
+                maxlength="60"
+                placeholder="60자 이하의 메모 작성하기"
+                name="memoInput"
+                id="memoInput"
+              />
+              <button>memo</button>
+            
+          </form>
+          <form action="/delete" method="POST" id="deleteForm">
+            <button>clear</button>
+          </form></div>
+        </section>
+      </main>
+      <%- include('includes/footer') %>
     </div>
-</body>
-
+  </body>
 </html>
