@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../includes/head") %>
+    <link rel="stylesheet" href="/css/shared.css" />
+    <link rel="stylesheet" href="/css/boxList.css" />
+    <link rel="stylesheet" href="/css/board/board.css" />
+    <script src="/scripts/function.js" defer></script>
+    <script src="/scripts/functionName.js" defer></script>
+    <title>Post Title</title>
+  </head>
+  <body>
+    <%- include('../includes/header') %>
+    <main id="boardMain">
+      <h1 id="title"><%= postData.title %></h1>
+      <section>
+        <%= postData.name %> (<%= postData.ip %>) |
+        <time datetime="<%= postData.date %>"
+          ><%= postData.dateForHuman %></time
+        >
+      </section>
+      <p id="content"><%=postData.body %></p>
+      <div id="controlBtn">
+        <form action="/board/<%= postData._id %>/delete" method="POST">
+          <input id="passwordInput" name="passwordInput" type="password" />
+          <button id="deleteConfirm" class="btn">삭제합니다</button>
+        </form>
+        <p id="cancleBtn" class="btn">취소</p>
+        <p id="deleteBtn" class="btn">삭제</p>
+        <p id="editBtn" class="btn"><a href="">수정</a></p>
+      </div>
+    </main>
+    <%- include('../includes/footer') %>
+  </body>
+</html>

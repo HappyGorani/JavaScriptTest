@@ -18,8 +18,9 @@
 }
 
 body {
+
   font-family: "melona", sans-serif;
-  background: linear-gradient(-90deg, #b456b4, #a83ce7, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #F8FFAE,   #43c6ac, #8ec5fc,#e0c3fc);
   background-size: 400% 400%;
   animation: ChangeArea 24s ease infinite;
   width: 100%;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head') %>
+    <title>Post Create</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/boxList.css" />
+    <link rel="stylesheet" href="css/board/board.css" />
+    <script src="scripts/function.js" defer></script>
+    <script src="scripts/functionName.js" defer></script>
+  </head>
+
+  <body>
+    <%- include('../includes/header') %>
+    <main id="boardMain">
+      <h1>게시글 작성</h1>
+      <form action="/newPost" method="POST">
+        <div class="formControl">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            maxlength="54"
+            placeholder="제목"
+          />
+        </div>
+        <div id="userInfo">
+          <div class="formControl">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              maxlength="5"
+              placeholder="이름"
+            />
+          </div>
+          <div class="formControl">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              maxlength="8"
+              placeholder="비밀번호"
+            />
+          </div>
+        </div>
+
+        <div class="formControl">
+          <textarea id="content" name="content" required rows="7"></textarea>
+        </div>
+
+        <button class="btn" onclick="history.back()">취소</button>
+        <button class="btn">확인</button>
+        <br/>
+        <br/>
+      </form>
+    </main>
+    <%- include('../includes/footer') %>
+  </body>
+</html>

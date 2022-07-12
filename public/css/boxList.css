@@ -21,6 +21,7 @@
 #memoBody ol {
   padding: 0;
   text-align: center;
+ 
 }
 #memoBody li {
   list-style: none;
@@ -28,6 +29,7 @@
   cursor: pointer;
   padding: 0.35rem 0.35rem;
   text-align: center;
+  
 }
 
 .box label {
@@ -83,6 +85,9 @@ form {
     margin: 0.5rem 0.5rem;
     cursor: pointer;
     padding: 0.35rem 0.35rem;
-    text-align: center;
+
+  }
+  #memoBoxBody {
+    margin:5rem 5rem 5rem 5rem;
   }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head') %>
+
+    <title>Post List</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/boxList.css" />
+    <link rel="stylesheet" href="css/board/boardList.css" />
+    <script src="scripts/function.js" defer></script>
+    <script src="scripts/functionName.js" defer></script>
+  </head>
+  <body>
+    <%- include('../includes/header') %>
+    <main id="boardMain">
+
+        <a class="createLink" href="/boardCreate">
+          게시물 작성하러 가기
+        </a>
+        <ol >
+          <% for (const post of postData ) { %>
+          <li><%- include('itemForBoard', {post:post}) %></li>
+          <% } %>
+        </ol>
+    </main>
+  </body>
+</html>

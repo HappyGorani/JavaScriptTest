@@ -1,0 +1,79 @@
+.formControl {
+  padding: 0 0;
+  margin: 0.1rem auto;
+}
+
+#userInfo {
+  margin-left: 49.5vw;
+  padding: 0 0;
+}
+#userInfo input {
+  width: 10vw;
+  height: 1.4rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  padding: 0;
+  margin: 0 0;
+}
+form input {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 59.5vw;
+  height: 1.6rem;
+  align-items: flex-end;
+  border-radius: 0.45rem;
+  border-width: 0;
+}
+form textarea {
+  width: 59vw;
+  height: 35vw;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-width: 0;
+  border-radius: 0.45rem;
+  padding: 0.3rem 0.3rem;
+  white-space: pre-wrap;
+}
+form textarea:focus {
+  outline: none;
+}
+.btn {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 0.35rem;
+  color: aliceblue;
+  transition: all 0.2s;
+  margin: 0.05rem;
+  cursor: pointer;
+  padding: 0.15rem;
+}
+.btn:hover {
+  color: rgba(0, 0, 0, 0.2);
+}
+#controlBtn{
+  display: flex;
+}
+#content{
+  background-color: rgba(0, 255, 255,0.2);
+
+}
+#passwordInput{
+  display: none;
+  
+}
+#deleteConfirm{
+  display:none;
+}
+#cancleBtn{
+  display:none;
+}
+#editBtn a{
+  text-decoration: none;
+  color:white;
+  transition: all 0.2s;
+}
+#editBtn a:hover {
+  color: rgba(0, 0, 0, 0.2);
+}

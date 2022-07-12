@@ -3,8 +3,9 @@ const path = require("path");
 const fs = require("fs");
 const { render } = require("ejs");
 const app = express();
-
+const boardRoutes = require("./routes/board");
 const memoFilePath = path.join(__dirname, "data", "memos.json");
+const db = require("./data/mongodbConfig")
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -12,11 +13,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(boardRoutes);
+
+////////////////////////////////////////////////
 app.get("/", function (req, res) {
   res.render("index");
-});
-app.get("/todolist", function (req, res) {
-  res.render("todolist");
 });
 app.get("/memo", function (req, res) {
   const memo = req.body;
@@ -39,4 +40,7 @@ app.post("/delete", function (req, res) {
   res.redirect("/memo");
 });
 
-app.listen(2222);
+db.connectToDatabase().then(function(){
+  app.listen(3000, "0.0.0.0");
+
+})
