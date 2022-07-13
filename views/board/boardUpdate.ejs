@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/head') %>
+    <title>Post Create</title>
+    <link rel="stylesheet" href="/css/shared.css" />
+    <link rel="stylesheet" href="/css/boxList.css" />
+    <link rel="stylesheet" href="/css/board/board.css" />
+    <script src="/scripts/function.js" defer></script>
+    <script src="/scripts/functionName.js" defer></script>
+  </head>
+
+  <body>
+    <%- include('../includes/header') %>
+    <main id="boardMain">
+      <h1>게시글 수정</h1>
+      <form action="/board/<%= postData._id %>/update" method="POST">
+        <div class="formControl">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            maxlength="54"
+            value="<%= postData.title %>"
+          />
+        </div>
+
+        <div class="formControl">
+          <textarea id="content" name="content" required rows="7">
+<%= postData.body %></textarea
+          >
+        </div>
+
+        <button class="btn" onclick="history.back()">취소</button>
+        <button class="btn">수정</button>
+        <input
+          type="text"
+          name="password"
+          placeholder="패스워드를 입력하세요."
+        />
+      </form>
+    </main>
+    <%- include('../includes/footer') %>
+  </body>
+</html>

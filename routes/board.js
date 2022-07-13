@@ -4,6 +4,10 @@ const mongodb = require("mongodb");
 const router = express.Router();
 const ObjectId = mongodb.ObjectId; // _id 객체화
 
+const historyBack = () => {
+  history.back();
+};
+
 router.get("/boardList", async function (req, res) {
   const postData = await db
     .getDb()
@@ -62,12 +66,12 @@ router.get("/board/:id", async function (req, res) {
 });
 router.post("/board/:id/delete", async function (req, res) {
   const postId = new ObjectId(req.params.id);
-  
-  try { 
+
+  try {
     const postData = await db
-        .getDb()
-        .collection("board")
-        .findOne({ _id: postId });
+      .getDb()
+      .collection("board")
+      .findOne({ _id: postId });
     if (postData.password === req.body.passwordInput) {
       const result = await db
         .getDb()
@@ -76,9 +80,51 @@ router.post("/board/:id/delete", async function (req, res) {
 
       res.redirect("/boardList");
     } else {
-     
       res.render("board/boardDetail", { postData: postData });
       console.log("패스워드가 틀렸습니다.");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/board/:id/edit", async function (req, res) {
+  const postId = new ObjectId(req.params.id);
+  const postData = await db
+    .getDb()
+    .collection("board")
+    .findOne({ _id: postId }, { password: 0, name: 0, ip: 0 });
+  res.render("board/boardUpdate", { postData: postData });
+});
+
+router.post("/board/:id/update", async function (req, res) {
+  const postId = new ObjectId(req.params.id);
+  const update = req.body;
+  const password = req.body.password;
+
+  try {
+    const postData = await db
+      .getDb()
+      .collection("board")
+      .findOne({ _id: postId }, { name: 0, ip: 0 });
+    if (password === postData.password) {
+      const result = await db
+        .getDb()
+        .collection("board")
+        .updateOne(
+          { _id: postId },
+          {
+            $set: {
+              title: update.title,
+              body: update.content,
+              date: new Date(),
+            },
+          }
+        );
+      res.redirect("/boardList");
+    } else {
+      console.log("패스워드가 틀렸습니다.");
+      res.render("board/boardUpdate", { postData: postData });
     }
   } catch (err) {
     console.log(err);

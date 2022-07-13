@@ -22,12 +22,14 @@
       <p id="content"><%=postData.body %></p>
       <div id="controlBtn">
         <form action="/board/<%= postData._id %>/delete" method="POST">
-          <input id="passwordInput" name="passwordInput" type="password" />
+          <input id="passwordInput" name="passwordInput" type="password" placeholder="패스워드를 입력하세요." />
           <button id="deleteConfirm" class="btn">삭제합니다</button>
         </form>
         <p id="cancleBtn" class="btn">취소</p>
         <p id="deleteBtn" class="btn">삭제</p>
-        <p id="editBtn" class="btn"><a href="">수정</a></p>
+        <form action="/board/<%= postData._id %>/edit" method="POST">
+          <button id="editBtn" class="btn" >수정</button>
+        </form>
       </div>
     </main>
     <%- include('../includes/footer') %>
